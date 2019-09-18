@@ -165,6 +165,7 @@ class Check(object):
             self.headers = {"Authorization":"Bearer {}".format(self.storage.get(self.auth.get('key', 'jwt')))}
             self.logger.info(self.headers)
         try:
+            size = 0
             http_call=getattr(requests,self.method) 
             start = time.time()
             result = http_call(
